@@ -23,9 +23,22 @@ body:not(.dark) .sun-rays {
 }
 
 .logo img {
-  height: 120px; /* atau sesuaikan, pastikan lebih kecil dari height header */
+  height: 80px; /* atau sesuaikan, pastikan lebih kecil dari height header */
   width: auto;
   object-fit: contain;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Biar vertikalnya sejajar */
+}
+
+.namlogo {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 /* Basic Dark Mode Neon 3D Styling */
@@ -81,14 +94,14 @@ body {
   transition: background-color 0.3s;
 }
 
-a {
+.ww {
   text-decoration: none;
   color: #000000; /* default: gelap di tema terang */
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 /* Saat tema gelap */
-body.dark a {
+body.dark .ww {
   color: #f3f5f7; /* terang di tema gelap */
 }
 
@@ -106,14 +119,14 @@ body.dark .ayam {
   margin-left: 0px;
 }
 
-body.dark a:hover {
+body.dark .ww:hover {
   color: #c8ff00;
-  text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
 
-a:hover {
+.ww:hover {
   color: #c8ff00;
-  text-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+  text-shadow: 0 0 15px rgba(255, 8, 0, 0.6);
 }
 
 header {
@@ -185,18 +198,6 @@ nav {
   display: block;
   position: relative;
   z-index: 1000;
-}
-
-.btn-primary {
-  background-color: #1b9cff;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #ff00f7;
 }
 
 .app-card {
@@ -332,6 +333,28 @@ html {
 }
 
 /* FOOTER  */
+
+.footer-main {
+  background-color: #e3e5e5;
+  padding: 40px 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #000000;
+  font-size: 10px;
+  gap: 10px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+  gap: 20px;
+}
+
+/*BAGIAN BAWAH */
 .footer {
   background: #ffffff;
   padding: 1rem 2rem;
@@ -357,17 +380,6 @@ body.dark .footer {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border-top: 1px solid rgb(0, 0, 0);
-  padding-top: 1rem;
-}
-
-body.dark .footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  border-top: 1px solid rgb(255, 252, 252);
-  padding-top: 1rem;
 }
 
 .footer-left {
@@ -384,7 +396,12 @@ body.dark .footer-bottom {
 
 .footer-left p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .footer-right {
@@ -437,4 +454,99 @@ body.dark .footer-right a:hover {
   .footer-right {
     align-self: flex-start;
   }
+}
+
+/* DROPDOWN */
+
+/* INI FOOTER GESSS */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #d3d4d4;
+  font-family: "Arial", sans-serif;
+  align-items: center;
+}
+
+.footer-main .footer-column {
+  flex: 1;
+  margin: 0 20px;
+  display: grid;
+  align-items: end;
+  justify-items: start;
+  align-content: stretch;
+  justify-content: start;
+}
+
+.footer-main .footer-column.about h4 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0e2947;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.footer-main .footer-column.about p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.footer-main .contact-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-main .contact-info .icon {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.footer-main .contact-info a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-main .footer-column.pages .heading,
+.footer-main .footer-column.connect .heading {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-size: 25px;
+  align-self: center;
+}
+
+.footer-main .footer-column.pages ul {
+  list-style: none;
+  padding: 0;
+  align-self: center;
+}
+
+.footer-main .footer-column.pages ul li {
+  margin-bottom: 30px;
+}
+
+.footer-main .footer-column.pages ul li a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.footer-main .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-main .social-icons img {
+  width: 300px;
+  height: auto;
+}
+
+.footer-main .join-button:hover {
+  background-color: #e6b800;
 }
