@@ -1,3 +1,13 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
 #searchResults {
   margin-top: 20px;
   border-top: 1px solid #ccc;
@@ -5,12 +15,9 @@
 }
 
 /* test */
-body.dark .aa {
-  color: white;
-}
 
 .aa {
-  color: #000000;
+  color: #ffffff;
 }
 
 .input-wrapper {
@@ -20,7 +27,7 @@ body.dark .aa {
   gap: 5px;
   position: relative;
 }
-
+/* bagian */
 .input {
   border: none;
   height: 30px;
@@ -30,7 +37,7 @@ body.dark .aa {
   transition: 0.5s ease-in-out;
   background-color: #1557c0;
   box-shadow: 0px 0px 3px #1557c0;
-  color: #000000;
+  color: #ffffff;
   opacity: 0;
 }
 
@@ -66,7 +73,7 @@ body.dark .input {
 .iconn:focus ~ .input,
 .input:focus {
   box-shadow: none;
-  width: 250px;
+  width: 200px;
   border-radius: 0;
   background-color: transparent;
   border-bottom: 3px solid #1557c0;
@@ -97,13 +104,13 @@ body.dark .input {
   justify-content: center;
   background-image: transparent;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  border: 4px solid rgba(211, 116, 116, 0.667);
+  border: 4px solid rgb(255, 255, 255);
 }
 
 .tooltip-text {
   white-space: nowrap;
   background-image: transparent;
-  color: #000000;
+  color: #ffffff;
   font-weight: bold;
   font-size: 11px;
   padding: 0rem 1rem;
@@ -258,31 +265,22 @@ body:not(.dark) .sun-rays {
 }
 
 /* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
 
 /* testing */
 /* testing */
 
 /* Basic Dark Mode Neon 3D Styling */
-body.dark {
-  color: #f1f1f1;
-  margin: 0;
-  transition: background-color 1s;
-  background-color: #111;
-}
 
 body {
-  color: #000000;
+  color: #ffffff;
   margin: 0;
   transition: background-color 0.3s;
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .ww {
   text-decoration: none;
-  color: #000000; /* default: gelap di tema terang */
+  color: #ffffff; /* default: gelap di tema terang */
   transition: color 0.3s, text-shadow 0.3s;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -291,18 +289,8 @@ body {
 }
 
 /* Saat tema gelap */
-body.dark .ww {
-  color: #f3f5f7; /* terang di tema gelap */
-}
 
 .ayam {
-  color: #000000;
-  text-decoration: #0e0e0e;
-  margin-top: 4px;
-  margin-left: 0px;
-}
-
-body.dark .ayam {
   color: #f3f5f7;
   text-decoration: #fffdfd;
   margin-top: 4px;
@@ -311,14 +299,6 @@ body.dark .ayam {
 
 .ayam i {
   transition: transform 0.3s ease;
-}
-
-body.dark .ww:hover {
-  background: linear-gradient(90deg, #00fff0, #ff0303, #00fff0);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
 }
 
 .ww:hover {
@@ -331,9 +311,9 @@ body.dark .ww:hover {
 }
 
 header {
-  background-color: #ffffff;
-  color: #000000;
-  box-shadow: 4px 10px 10px rgba(1, 1, 1, 0.413);
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 4px 10px 10px rgba(255, 255, 255, 0.413);
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -344,13 +324,6 @@ header {
   top: 0;
   width: 100%;
   filter: blur(0, 1px);
-}
-
-/* Mode gelap */
-body.dark header {
-  background-color: #000000;
-  color: #ffffff;
-  box-shadow: 4px 10px 10px rgba(255, 255, 255, 0.1);
 }
 
 nav {
@@ -367,7 +340,7 @@ nav {
 
 .lang-switch {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   margin-left: 40px;
 }
@@ -377,6 +350,13 @@ nav {
   display: flex;
   gap: 15px;
   align-items: center;
+}
+
+.nav-linkss {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-right: 14px;
 }
 
 .nav-links li {
@@ -437,17 +417,10 @@ nav {
 }
 
 /* Partikel data berbentuk kotak kecil */
-body.dark .data-particle {
-  position: absolute;
-  background: #00ffff; /* neon cyan */
-  border-radius: 2px;
-  opacity: 0.8;
-  animation: pulse 3s infinite ease-in-out, slide linear infinite;
-}
 
 .data-particle {
   position: absolute;
-  background: #000000; /* neon cyan */
+  background: #00ffff; /* neon cyan */
   border-radius: 2px;
   opacity: 0.8;
   animation: pulse 3s infinite ease-in-out, slide linear infinite;
@@ -506,20 +479,6 @@ body.dark .data-particle {
   }
 }
 
-.log:hover {
-  transform: scale(1.3); /* Membesarkan logo 10% */
-  filter: drop-shadow(0px 0px 5px #2998cb); /* glow ungu */
-}
-
-@keyframes moveOneDirection {
-  0% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
 .app-card {
   background-color: #2c2c2c;
   padding: 20px;
@@ -547,11 +506,6 @@ body.dark .data-particle {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
 }
 
 @media screen and (max-width: 1024px) {
@@ -606,10 +560,6 @@ html {
         rgba(0, 255, 255, 0.08) 0%,
         transparent 60%
       ); /* hitam untuk tema gelap */
-  }
-
-  body.dark .nav-links a {
-    color: #fff; /* ubah teks menjadi putih di tema gelap */
   }
 
   body:not(.dark) .nav-links a {
@@ -765,17 +715,7 @@ html {
 
 /*BAGIAN BAWAH */
 .footer {
-  background: #ffffff;
-  padding: 1rem 2rem;
-  color: rgb(0, 0, 0);
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-body.dark .footer {
-  background: #030303;
+  background: #000000;
   padding: 1rem 2rem;
   color: rgb(255, 255, 255);
   font-family: "Montserrat", sans-serif;
@@ -818,23 +758,10 @@ body.dark .footer {
   gap: 1rem;
 }
 
-body.dark .footer-right a {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-  transition: background 0.3s;
-}
-
 .footer-right a {
   width: 40px;
   height: 40px;
-  border: 1px solid rgb(0, 0, 0);
+  border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -845,11 +772,7 @@ body.dark .footer-right a {
 }
 
 .footer-right a:hover {
-  background: rgb(21, 21, 21);
-}
-
-body.dark .footer-right a:hover {
-  background-color: #d3d0d096;
+  background: rgb(228, 227, 227);
 }
 
 /* Responsive */
@@ -966,8 +889,8 @@ img {
 
 .featured-apps {
   border-radius: 0.1rem;
-  filter: blur(0, 1px);
-  box-shadow: 0.1px 0px 200px 200px rgba(1, 1, 1, 0.413);
+  filter: blur(0.1px);
+  box-shadow: 2px 0px 200px 200px rgba(255, 255, 255, 0.256);
 }
 
 /* Hero Section */
@@ -984,10 +907,6 @@ img {
   position: relative;
   overflow: hidden;
   margin: 0 auto;
-}
-
-body.dark .featured-apps {
-  box-shadow: 2px 0px 200px 200px rgba(255, 255, 255, 0.256);
 }
 
 .hero::after {
@@ -1109,48 +1028,26 @@ button.next {
   right: 10px;
 }
 
-.indicators {
+.indicator-bar {
   position: absolute;
-  bottom: 0px;
+  bottom: 3px;
   left: 50%;
   transform: translateX(-50%);
+  width: 90%;
+  height: 3px;
   display: flex;
-  gap: 5px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.indicatort {
-  width: 4px;
-  height: 4px;
-  background-color: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
+.indicator-segment {
+  flex: 1;
+  background-color: #ccc;
   transition: background-color 0.3s ease;
 }
 
-.indicatort.active {
-  background-color: #09095f;
-}
-
-.indicatorss {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.indicatortt {
-  width: 12px;
-  height: 12px;
-  background-color: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.indicatortt.active {
-  background-color: #34343a;
+.indicator-segment.active {
+  background-color: #3574fc6d;
 }
 
 /* Responsive adjustments */
@@ -1433,7 +1330,7 @@ button.next {
   padding: 8px 5px;
   height: 45rem;
   overflow: hidden;
-  max-width: 900px;
+  max-width: 60rem;
   margin: 0 auto;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -1448,7 +1345,7 @@ button.next {
 }
 
 .bigger {
-  font-size: 7rem;
+  font-size: 5rem;
   position: relative;
   display: inline-block;
   font-weight: bold;
@@ -1479,10 +1376,6 @@ button.next {
 .hero-left p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  color: #000000;
-}
-
-body.dark .hero-left p {
   color: white;
 }
 
@@ -1509,14 +1402,14 @@ body.dark .hero-left p {
 }
 
 .carousel-wrapper {
-  height: 45rem;
+  height: 46rem;
   width: 300px;
   overflow: hidden;
   position: relative;
 }
 
 .carousell-wrapper {
-  height: 45rem;
+  height: 46rem;
   width: 200px;
   overflow: hidden;
   position: relative;
@@ -1556,11 +1449,11 @@ body.dark .hero-left p {
 
 /* Animasi mulus */
 .scroll-up {
-  animation: scroll-up 30s linear infinite;
+  animation: scroll-up 50s linear infinite;
 }
 
 .scroll-down {
-  animation: scroll-down 30s linear infinite;
+  animation: scroll-down 40s linear infinite;
 }
 
 @keyframes scroll-up {
@@ -1568,13 +1461,13 @@ body.dark .hero-left p {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-50%);
+    transform: translateY(-50.6%);
   }
 }
 
 @keyframes scroll-down {
   0% {
-    transform: translateY(-50%);
+    transform: translateY(-50.8%);
   }
   100% {
     transform: translateY(0);
@@ -1667,6 +1560,16 @@ body.dark .hero-left p {
   margin: 0 auto;
 }
 
+.gagi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 3rem;
+  font-size: 3rem;
+  max-width: 1400px;
+}
+
 /* tetete */
 .popup-overlay {
   position: fixed;
@@ -1717,11 +1620,14 @@ body.dark .hero-left p {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 20px;
+  font-size: 30px;
   border: none;
   background: transparent;
   cursor: pointer;
-  color: #333;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 50%;
+  padding: 2px 10px;
 }
 
 @keyframes fadeUp {
@@ -1733,4 +1639,35 @@ body.dark .hero-left p {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* df */
+.popup {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  position: relative;
+}
+
+.popup img {
+  max-width: 85vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
 }

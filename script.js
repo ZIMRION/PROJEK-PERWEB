@@ -1,16 +1,46 @@
 // bahasa
-const langLinks = document.querySelectorAll(".nav-links a");
-document.getElementById("id").addEventListener("click", () => {
-  langLinks.forEach(
-    (link) => (link.textContent = link.getAttribute("data-id"))
-  );
+document.querySelectorAll(".slider-container").forEach((container) => {
+  const slider = container.querySelector(".slider");
+  const slides = container.querySelectorAll(".slidet");
+  const prevBtn = container.querySelector(".prev");
+  const nextBtn = container.querySelector(".next");
+  const indicators = container.querySelectorAll(".indicator-segment");
+
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  function updateSlider() {
+    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateIndicators();
+  }
+
+  function updateIndicators() {
+    indicators.forEach((segment, index) => {
+      segment.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlider();
+  });
+
+  indicators.forEach((segment) => {
+    segment.addEventListener("click", (e) => {
+      currentSlide = parseInt(e.target.dataset.index);
+      updateSlider();
+    });
+  });
+
+  // Inisialisasi posisi awal
+  updateSlider();
 });
 
-document.getElementById("en").addEventListener("click", () => {
-  langLinks.forEach(
-    (link) => (link.textContent = link.getAttribute("data-en"))
-  );
-});
 // bahasa
 
 // menu
@@ -58,26 +88,6 @@ menuLinks.forEach((link) => {
   });
 });
 
-/// gelaptrag
-/// gelaptrag
-const toggleBtn = document.getElementById("theme-toggle");
-const body = document.body;
-
-function updateThemeIcon() {
-  // hapus isi button dulu
-  toggleBtn.innerHTML = body.classList.contains("dark")
-    ? '<i data-feather="sun"></i>'
-    : '<i data-feather="moon"></i>';
-  feather.replace(); // pasang ulang icon baru
-}
-
-toggleBtn.addEventListener("click", () => {
-  body.classList.toggle("dark");
-  updateThemeIcon();
-});
-/// gelaptrag
-/// gelaptrag
-
 // slide
 // slide
 // slide
@@ -85,61 +95,24 @@ toggleBtn.addEventListener("click", () => {
 // slide
 // slide
 // slide
-const sliderr = document.getElementById("slider");
-const next = document.getElementById("next");
-const prev = document.getElementById("prev");
-const indicatorss = document.querySelectorAll(".indicatort");
 
-let currentSlide = 0;
-
-const totalSlides = document.querySelectorAll(".slidet").length;
-
-function updateSliderPosition() {
-  sliderr.style.transform = `translateX(-${currentSlide * 100}%)`;
-  updateIndicators();
-}
-
-function updateIndicators() {
-  indicatorss.forEach((indicator, index) => {
-    indicator.classList.remove("active");
-    if (index === currentSlide) {
-      indicator.classList.add("active");
-    }
-  });
-}
-
-next.addEventListener("click", () => {
-  currentSlide = (currentSlide + 1) % totalSlides;
-  updateSliderPosition();
-});
-
-prev.addEventListener("click", () => {
-  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-  updateSliderPosition();
-});
-
-indicatorss.forEach((indicator) => {
-  indicator.addEventListener("click", (e) => {
-    currentSlide = parseInt(e.target.dataset.slide);
-    updateSliderPosition();
-  });
-});
 //
 // slide
 // slide
 // slide
+
 // slide
 // slide
 // slide
 
 const starContainer = document.getElementById("starfield");
-const totalParticles = 1000;
+const totalParticles = 500;
 
 for (let i = 0; i < totalParticles; i++) {
   const particle = document.createElement("div");
   particle.classList.add("data-particle");
 
-  const size = Math.random() * 1 + 1; // kotak 1 - 4 px
+  const size = Math.random() * 2 + 1; // kotak 1 - 4 px
   particle.style.width = `${size}px`;
   particle.style.height = `${size}px`;
   particle.style.top = `${Math.random() * 100}vh`;
@@ -292,3 +265,32 @@ function openPopup(item) {
 function closePopup() {
   popupOverlay.style.display = "none";
 }
+
+// test2
+const popup = document.getElementById("popup");
+const popupImg = document.getElementById("popup-img");
+const closeBtn = document.getElementById("close-popup");
+const carouselImages = document.querySelectorAll(".carousel-track img");
+
+// Tampilkan popup saat gambar diklik
+carouselImages.forEach((img) => {
+  img.addEventListener("click", () => {
+    popupImg.src = img.src;
+    popup.classList.remove("hidden");
+  });
+});
+
+// Tutup popup saat tombol silang diklik
+closeBtn.addEventListener("click", () => {
+  popup.classList.add("hidden");
+  popupImg.src = "";
+});
+
+popup.addEventListener("click", (event) => {
+  if (!popupImg.contains(event.target) && !closeBtn.contains(event.target)) {
+    popup.classList.add("hidden");
+    popupImg.src = "";
+  }
+});
+
+// Set indikator awal saat halaman pertama kali dibuka

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Update Berita</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 1rem;
+      }
+      input,
+      textarea {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 8px;
+      }
+      button {
+        padding: 10px 16px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-6"
+  >
+    <!-- Form Login -->
+    <div class="w-full max-w-md bg-white shadow-lg rounded-xl p-6 space-y-6">
+      <!-- Login Section -->
+      <div id="loginSection">
+        <h2 class="text-2xl font-semibold text-center mb-4">Admin Login</h2>
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <button
+          onclick="login()"
+          class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+        >
+          Login
+        </button>
+      </div>
+
+      <!-- Dashboard Section -->
+      <div id="dashboardSection" style="display: none">
+        <h2 class="text-2xl font-semibold text-center mb-4">Tambah Berita</h2>
+        <form id="beritaForm" class="space-y-3">
+          <input
+            type="text"
+            id="judul"
+            placeholder="Judul Berita"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400"
+            required
+          />
+          <textarea
+            id="isi"
+            placeholder="Isi Berita"
+            rows="4"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-400"
+            required
+          ></textarea>
+          <input
+            type="file"
+            id="gambar"
+            accept="image/*"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md"
+            required
+          />
+          <button
+            type="submit"
+            class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700"
+          >
+            Simpan Berita
+          </button>
+        </form>
+
+        <button
+          onclick="logout()"
+          class="w-full mt-4 bg-red-500 text-white py-2 rounded-md hover:bg-red-600"
+        >
+          Logout
+        </button>
+
+        <div id="status" class="text-sm text-gray-700 mt-3 text-center"></div>
+      </div>
+    </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+    <!-- Firebase Config -->
+    <script>
+      const firebaseConfig = {
+        apiKey: "API_KEY",
+        authDomain: "PROJECT.firebaseapp.com",
+        projectId: "PROJECT_ID",
+        storageBucket: "PROJECT.appspot.com",
+        messagingSenderId: "XXX",
+        appId: "XXX",
+      };
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      const storage = firebase.storage();
+    </script>
+
+    <!-- Logic Simpan Berita -->
+    <script>
+      const form = document.getElementById("beritaForm");
+      const status = document.getElementById("status");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const judul = document.getElementById("judul").value;
+        const isi = document.getElementById("isi").value;
+        const gambarFile = document.getElementById("gambar").files[0];
+
+        if (!judul || !isi || !gambarFile) {
+          alert("Semua field wajib diisi!");
+          return;
+        }
+
+        status.innerText = "Mengupload gambar...";
+
+        const storageRef = storage
+          .ref()
+          .child(`berita/${Date.now()}_${gambarFile.name}`);
+        const snapshot = await storageRef.put(gambarFile);
+        const gambarURL = await snapshot.ref.getDownloadURL();
+
+        status.innerText = "Menyimpan berita ke database...";
+
+        await db.collection("berita").add({
+          judul,
+          isi,
+          gambar: gambarURL,
+          dibuat: new Date(),
+        });
+
+        status.innerText = "✅ Berita berhasil disimpan!";
+        form.reset();
+      });
+
+      const auth = firebase.auth();
+
+      // Cek status login
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // Sudah login, tampilkan dashboard
+          document.getElementById("loginSection").style.display = "none";
+          document.getElementById("dashboardSection").style.display = "block";
+        } else {
+          // Belum login
+          document.getElementById("loginSection").style.display = "block";
+          document.getElementById("dashboardSection").style.display = "none";
+        }
+      });
+
+      // Fungsi Login
+      async function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+          await auth.signInWithEmailAndPassword(email, password);
+        } catch (err) {
+          alert("Login gagal: " + err.message);
+        }
+      }
+
+      // Logout
+      function logout() {
+        auth.signOut();
+      }
+    </script>
+  </body>
+</html>

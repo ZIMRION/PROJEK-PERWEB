@@ -7,7 +7,9 @@
       name="BEM Kominfo SV IPB Website"
       content="Struktur kepanitiaan dan informasi seputar organisasi."
     />
-    <title>Kominfo</title>
+    <link rel="icon" href="2.webp" type="image/webp" />
+    <title>Komunikasi dan Informasi</title>
+
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +47,7 @@
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
   </head>
   <body>
     <div id="starfield"></div>
@@ -68,51 +71,23 @@
 
         <ul class="nav-links">
           <li>
-            <a href="#home" data-en="HOME" data-id="BERANDA" class="ww">HOME</a>
+            <a href="#home" class="ww">HOME</a>
           </li>
           <li>
-            <a
-              href="#Struktur"
-              data-en="STRUCTURE"
-              data-id="STRUKTUR"
-              class="ww"
-              >STRUCTURE</a
-            >
+            <a href="#Struktur" class="ww">STRUKTUR</a>
           </li>
           <li>
-            <a href="#about" data-en="ABOUT" data-id="TENTANG" class="ww"
-              >ABOUT</a
-            >
+            <a href="#about" class="ww">TENTANG KAMI</a>
           </li>
           <li>
-            <a href="#top-apps" data-en="GALLERY" data-id="GALERI" class="ww"
-              >GALLERY</a
-            >
+            <a href="#top-apps" class="ww">PROGRAM KERJA</a>
           </li>
           <li>
-            <a href="#updates" data-en="UPDATES" data-id="PEMBARUAN" class="ww"
-              >UPDATES</a
-            >
+            <a href="#updates" class="ww">BERITA</a>
           </li>
         </ul>
+
         <div class="lang-switch">
-          <img
-            src="indo.webp"
-            id="id"
-            alt="Indonesia"
-            width="24"
-            style="cursor: pointer"
-          />
-          <img
-            src="eng.webp"
-            id="en"
-            alt="English"
-            width="24"
-            style="cursor: pointer"
-          />
-          <button id="theme-toggle" title="Toggle theme">
-            <i data-feather="moon"></i>
-          </button>
           <!-- From Uiverse.io by boryanakrasteva -->
           <div class="input-wrapper">
             <button
@@ -121,7 +96,7 @@
               onclick="focusInput()"
               id="searchBtn"
             >
-              <i data-feather="search" class="aa">🔍</i>
+              <i data-feather="search" class="aa"></i>
             </button>
             <input
               type="text"
@@ -131,6 +106,9 @@
               placeholder="search.."
             />
           </div>
+          <a href="admin.html" class="nav-linkss"
+            ><i data-feather="log-in" class="aa"></i
+          ></a>
 
           <a href="#" id="men" class="ayam" aria-label="Toggle menu">
             <svg viewBox="0 0 24 24" width="32" height="32">
@@ -174,12 +152,10 @@
     <div id="landingPage">
       <section class="hero-section" id="home">
         <div class="hero-left">
-          <h1><text class="bigger">KOMINFO</text><span></span>BEM SV IPB</h1>
+          <h1><text class="bigger">KOMINFO</text><br />BEM SV</h1>
           <p>
-            Departemen Komunikasi dan Informasi merupakan departemen yang dikepalai oleh Muhammad 
-            Davin Kurniawan Akbar dengan tujuan sebagai garda terdepan dalam penyajian informasi terhadap KM 
-            Vokasi yang diwujudkan melalui program kerja strategis serta menjadi wadah untuk KM Vokasi untuk 
-            berkembang dalam dunia Digital Multimedia, Komunikasi Informasi, Jurnalistik.
+            Jelajahi koneksi, informasi, dan komunikasi global tanpa batas
+            dengan teknologi modern.
           </p>
           <a href="#updates" class="hero-btn">Jelajahi Sekarang</a>
         </div>
@@ -202,119 +178,599 @@
               <img src="1111.webp" loading="lazy" />
             </div>
           </div>
+        </div>
 
-          <div class="carousell-wrapper">
-            <div class="carousel-track scroll-down">
-              <!-- Isi carousel -->
-              <img src="11.webp" loading="lazy" />
-              <img src="1111.webp" loading="lazy" />
-              <img src="111.webp" loading="lazy" />
-              <img src="22.webp" loading="lazy" />
-              <img src="222.webp" loading="lazy" />
+        <div class="carousell-wrapper">
+          <div class="carousel-track scroll-down">
+            <!-- Isi carousel -->
+            <img src="11.webp" loading="lazy" />
+            <img src="1111.webp" loading="lazy" />
+            <img src="111.webp" loading="lazy" />
+            <img src="22.webp" loading="lazy" />
+            <img src="222.webp" loading="lazy" />
 
-              <!-- Duplikat -->
-              <img src="11.webp" loading="lazy" />
-              <img src="1111.webp" loading="lazy" />
-              <img src="111.webp" loading="lazy" />
-              <img src="22.webp" loading="lazy" />
-              <img src="222.webp" loading="lazy" />
-            </div>
+            <!-- Duplikat -->
+            <img src="11.webp" loading="lazy" />
+            <img src="1111.webp" loading="lazy" />
+            <img src="111.webp" loading="lazy" />
+            <img src="22.webp" loading="lazy" />
+            <img src="222.webp" loading="lazy" />
+          </div>
+        </div>
+        <!-- POP-UP -->
+        <div id="popup" class="popup hidden">
+          <div class="popup-overlay"></div>
+          <div class="popup-content">
+            <button id="close-popup" class="close-btn">&times;</button>
+            <img id="popup-img" src="" alt="popup image" />
           </div>
         </div>
       </section>
 
       <!-- Featured Apps Section -->
       <section id="Struktur" class="featured-apps">
-        <h2 class="gagi">GET TO KNOW OUR TEAM</h2>
+        <div class="gagi" data-aos="fade-right">
+          <h1>Struktur Kepanitiaan</h1>
+        </div>
         <div class="hero">
           <div class="hero-image" data-aos="fade-up">
-            <div class="slider" id="slider">
-              <div class="slidet">
-                <div class="card">
-                  <img src="532F.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
+            <div class="slider-container">
+              <!-- Tambahkan wrapper modular -->
+              <div class="slider">
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Muhammad Davin Kurniawan Akbar Ketua.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        M. Davin<br /><span>Kurniawan Akbar</span><br /><span
+                          >(Ketua)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Muhammad Fadhil Roesfiandra BPH Wakil Bogor.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        M. Fadhil<br /><span>Roesfiandra</span><br /><span
+                          >(Wakil Bogor)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Rheinaldy Ciptanda Fatya BPH Wakil SMI.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Rheinaldy<br /><span>Ciptanda Fatya</span><br /><span
+                          >(Wakil SMI)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Sherindiva Hadijah Rahim BPH Bendahara.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Sherindiva<br /><span>Hadijah Rhahim</span><br /><span
+                          >(Bendahara)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Agung Laksono BPH Sekre Bogor.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Agung<br /><span>Laksono</span><br /><span
+                          >(Sekre Bogor)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Diah Ayu Ferianti BPH Sekre SMI.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Diah<br /><span>Ayu Ferianti</span><br /><span
+                          >(Sekre SMI)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="288D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
+
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+
+              <div class="indicators">
+                <div class="indicator-bar">
+                  <div class="indicator-segment" data-index="0"></div>
+                  <div class="indicator-segment" data-index="1"></div>
+                  <div class="indicator-segment" data-index="2"></div>
+                  <div class="indicator-segment" data-index="3"></div>
+                  <div class="indicator-segment" data-index="4"></div>
+                  <div class="indicator-segment" data-index="5"></div>
                 </div>
               </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="289D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="prev" id="prev">&#10094;</button>
-            <button class="next" id="next">&#10095;</button>
-            <div class="indicators">
-              <div class="indicatort" data-slide="0"></div>
-              <div class="indicatort" data-slide="1"></div>
-              <div class="indicatort" data-slide="2"></div>
             </div>
           </div>
-          <div class="hero-content">
+
+          <div class="hero-content" data-aos="fade-left">
             <h1>BPH</h1>
+            <p>Tumbuh Lebih Baik</p>
+            <ul class="features">
+              <li><span></span> Deskripsi Singkat</li>
+              <li><span></span> Jobdesk dan Tanggung Jawab</li>
+              <li><span></span> Motto</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hero">
+          <div class="hero-content" data-aos="fade-right">
+            <h1>Komunikasi dan Informasi</h1>
+            <p>Data Personil</p>
+            <ul class="features">
+              <li><span></span> Deskripsi Singkat</li>
+              <li><span></span> Jobdesk dan Tanggung Jawab</li>
+              <li><span></span> Motto</li>
+            </ul>
+          </div>
+          <div class="hero-image" data-aos="fade-up">
+            <div class="slider-container">
+              <!-- Tambahkan wrapper modular -->
+              <div class="slider">
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Sherindiva Hadijah Rahim BPH Bendahara.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Sherindiva<br /><span>Hadijah Rhahim</span>
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Clarisa Nayla Rizal Komunikasi dan Informasi.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Clarisa<br /><span>Nayla Rizal</span><br /><span
+                          >(Anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Nisrina Alifah Azzahra Komunikasi dan Informasi.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Nisrina<br /><span>Alifah Azzahra</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+
+              <div class="indicators">
+                <div class="indicator-bar">
+                  <div class="indicator-segment" data-index="0"></div>
+                  <div class="indicator-segment" data-index="1"></div>
+                  <div class="indicator-segment" data-index="2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero">
+          <div class="hero-image" data-aos="fade-up">
+            <div class="slider-container">
+              <!-- Tambahkan wrapper modular -->
+              <div class="slider">
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Caili Renu Saputra Koor Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Caili<br /><span>Renu Saputra</span><br /><span
+                          >(ketua)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img src="image/Dania Multimedia.webp" class="dd" />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">Dania<br /><span>(anggota)</span></p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Fayza Noor Salsabilla Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Fayza<br /><span>Noor Salsabilla</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Aydin Farhan Rizqullah Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Aydin<br /><span>Farhan Rizqullah</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Fachryreza Andaris Albar Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Fachryeza<br /><span>Andaris Albar</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Gibran Ramadhan Nur Ahyar Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Gibran<br /><span>Ramadhan Nur Ahyar</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Muhammad Fatir Al-Jawwad Siregar Multimedia.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        M.Fatir<br /><span>Al-Jawwad Siregar</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+
+              <div class="indicators">
+                <div class="indicator-bar">
+                  <div class="indicator-segment" data-index="0"></div>
+                  <div class="indicator-segment" data-index="1"></div>
+                  <div class="indicator-segment" data-index="2"></div>
+                  <div class="indicator-segment" data-index="3"></div>
+                  <div class="indicator-segment" data-index="4"></div>
+                  <div class="indicator-segment" data-index="5"></div>
+                  <div class="indicator-segment" data-index="6"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-content" data-aos="fade-right">
+            <h1>Multimedia</h1>
             <p>Data Personil</p>
             <ul class="features">
               <li><span></span> Deskripsi Singkat</li>
@@ -324,8 +780,8 @@
           </div>
         </div>
         <div class="hero">
-          <div class="hero-content">
-            <h1>DIVISI 2</h1>
+          <div class="hero-content" data-aos="fade-right">
+            <h1>Jurnalistik</h1>
             <p>Data Personil</p>
             <ul class="features">
               <li><span></span> Deskripsi Singkat</li>
@@ -334,195 +790,145 @@
             </ul>
           </div>
           <div class="hero-image" data-aos="fade-up">
-            <div class="slider" id="slider">
-              <div class="slidet">
-                <div class="card">
-                  <img src="289D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
+            <div class="slider-container">
+              <!-- Tambahkan wrapper modular -->
+              <div class="slider">
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Gregorius Raditya Bramantyo Koor Jurnalistik.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Gregorius<br /><span>Raditya Bramantyo</span><br /><span
+                          >(ketua)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img src="image/Alya Hamidah Jurnalistik.webp" class="dd" />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Alya<br /><span>Hamidah</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Majesty L.H.E Jurnalistik.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Majesty<br /><span>L.H.E</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="slidet">
+                  <div class="card">
+                    <img
+                      src="image/Mochamad Danish Jurnalistik.webp"
+                      class="dd"
+                    />
+                    <b></b>
+                    <div class="content">
+                      <p class="title">
+                        Mochamad<br /><span>Danish</span><br /><span
+                          >(anggota)</span
+                        >
+                      </p>
+                      <ul class="sci">
+                        <li>
+                          <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="289D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="289D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="prev" id="prev">&#10094;</button>
-            <button class="next" id="next">&#10095;</button>
-            <div class="indicators">
-              <div class="indicatort" data-slide="0"></div>
-              <div class="indicatort" data-slide="1"></div>
-              <div class="indicatort" data-slide="2"></div>
-            </div>
-          </div>
-        </div>
-        <div class="hero">
-          <div class="hero-image" data-aos="fade-up">
-            <div class="slider" id="slider">
-              <div class="slidet">
-                <div class="card">
-                  <img src="532F.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="288D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="slidet">
-                <div class="card">
-                  <img src="289D.webp" class="dd" />
-                  <b></b>
-                  <div class="content">
-                    <p class="title">
-                      Sherindiva<br /><span>Hadijah Rhahim</span>
-                    </p>
-                    <ul class="sci">
-                      <li>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                      </li>
-                      <li>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                      </li>
-                    </ul>
-                  </div>
+
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+
+              <div class="indicators">
+                <div class="indicator-bar">
+                  <div class="indicator-segment" data-index="0"></div>
+                  <div class="indicator-segment" data-index="1"></div>
+                  <div class="indicator-segment" data-index="2"></div>
+                  <div class="indicator-segment" data-index="3"></div>
                 </div>
               </div>
             </div>
-            <button class="prev" id="prev">&#10094;</button>
-            <button class="next" id="next">&#10095;</button>
-            <div class="indicators">
-              <div class="indicatort" data-slide="0"></div>
-              <div class="indicatort" data-slide="1"></div>
-              <div class="indicatort" data-slide="2"></div>
-            </div>
-          </div>
-          <div class="hero-content">
-            <h1>DIVISI 3</h1>
-            <p>Data Personil</p>
-            <ul class="features">
-              <li><span></span> Deskripsi Singkat</li>
-              <li><span></span> Jobdesk dan Tanggung Jawab</li>
-              <li><span></span> Motto</li>
-            </ul>
           </div>
         </div>
       </section>
 
       <!-- Featured Apps Section -->
-
-      <!-- Featured Apps Section -->
-
       <!-- Discover Section -->
       <!-- <section id="discover" class="discover-section">
       <h2>Discover Our Products</h2>
